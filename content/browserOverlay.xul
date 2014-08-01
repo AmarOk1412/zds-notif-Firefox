@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<?xml-stylesheet href="chrome://zds-notif/skin/toolbar-button.css" type="text/css"?>
+
+<!DOCTYPE overlay SYSTEM
+  "chrome://zds-notif/locale/browserOverlay.dtd">
+
+<overlay id="zds-notif-browser-overlay"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <script type="application/x-javascript"
+    src="chrome://zds-notif/content/browserOverlay.js" />
+
+  <stringbundleset id="stringbundleset">
+    <stringbundle id="zds-notif-string-bundle"
+      src="chrome://zds-notif/locale/browserOverlay.properties" />
+  </stringbundleset>
+
+  <toolbarpalette id="BrowserToolbarPalette">
+  <toolbarbutton id="zds-notif-button" class="toolbarbutton-1"
+    label="" tooltiptext="&zds-notif.toolbar-label;"
+    type="menu"
+    image="chrome://zds-notif/skin/images/icone_16.png"
+    oncommand="this.open = true;"
+    oncontextmenu="this.open = true;">
+      <menupopup id="zds-notif-popup">
+      <html:div id="temp"><html:div class="dropdown">
+        <html:span class="dropdown-title">Notifications</html:span>
+          <html:ul class="dropdown-list">
+            <html:li class="dropdown-empty-message">Aucune notification</html:li>
+          </html:ul>
+        <html:a href="http://zestedesavoir.com/forums/notifications/" class="dropdown-link-all">Toutes les notifications</html:a>
+      </html:div>
+      </html:div>
+      </menupopup>
+  </toolbarbutton>
+  </toolbarpalette>
+</overlay>
+<!--ZDSNotif.BrowserOverlay.sayHello(event);
+        <menuitem label="&zds-notif.toolbar-label;" command="ZDSNotif.BrowserOverlay.sayHello(event)" />
+        <menuitem label="&zds-notif.toolbar-label;" command="ZDSNotif.BrowserOverlay.sayHello(event)" />-->
+<!--
+      -->
+
+<!--
+        <html:div class="dropdown">
+          <html:span class="dropdown-title">Notifications</html:span>
+          <html:ul class="dropdown-list">
+            <html:li>
+              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
+                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
+                  <html:span class="username">babas</html:span>
+                  <html:span class="date">Il y a 4 minutes</html:span>
+                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
+              </html:a>
+            </html:li>
+            <html:li>
+              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
+                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
+                  <html:span class="username">babas</html:span>
+                  <html:span class="date">Il y a 4 minutes</html:span>
+                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
+              </html:a>
+            </html:li>
+            <html:li>
+              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
+                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
+                  <html:span class="username">babas</html:span>
+                  <html:span class="date">Il y a 4 minutes</html:span>
+                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
+              </html:a>
+            </html:li>
+          </html:ul>
+          <html:a href="/forums/notifications/" class="dropdown-link-all">
+            Toutes les notifications
+          </html:a>
+        </html:div>-->

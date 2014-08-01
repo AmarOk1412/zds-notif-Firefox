@@ -1,0 +1,4 @@
+<!ENTITY zds-notif.hello.label            "Hello World!">
+<!ENTITY zds-notif.helloMenu.accesskey    "l">
+<!ENTITY zds-notif.helloItem.accesskey    "H">
+<!ENTITY zds-notif.toolbar-label          "ZdS Notificateur">

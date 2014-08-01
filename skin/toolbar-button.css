@@ -1,0 +1,76 @@
+/*#zds-notif-button {
+  list-style-image: url("chrome://zds-notif/skin/images/icon_firefox.png");
+}
+
+toolbar[iconsize="small"] #zds-notif-button {
+  list-style-image: url("chrome://zds-notif/skin/images/icon_firefox.png");
+}*/
+
+.dropdown
+{
+  width: 350px;
+  text-align:center;
+  margin:0;
+  padding:0;
+  font-size:14px;
+  color: #ffffff;
+  background-color:#396a81;
+  border-bottom:3px solid #F8AD32;
+  line-height:30px;
+  vertical-align: middle;
+}
+
+.dropdown-link-all
+{
+  display:block;
+  height:30px;
+  background-color:#396a81;
+}
+
+.dropdown-list
+{
+  width:100%;
+  background-color: #19526c;  
+  list-style-type:none;
+  margin:0;
+  padding:0;
+}
+
+li
+{
+  height:60px;
+  border-bottom: 1px solid #396a81;
+}
+
+.dropdown-empty-message
+{
+  color: #85a3b1;
+  height: 60px;
+  line-height:60px;
+  vertical-align: middle;
+}
+
+.avatar
+{
+  float: left;
+  height: 30px;
+  width: 30px;
+}
+
+.username
+{
+    display: block;
+    float: left;
+    color: #95D7F5;
+    width: 50%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.date 
+{
+    color: #5196b6;
+    float: right;
+    padding: 4px 10px 0 0;
+}
