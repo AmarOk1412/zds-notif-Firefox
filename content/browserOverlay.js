@@ -1,15 +1,16 @@
+//TODO : GET MP/ Badge / Home page / About / Disconnect / Update (time + clic) / a href bug / Icon
+
 if ("undefined" == typeof(ZDSNotif)) {
-  var ZDSNotif = {};
+  var ZDSNotif = {
+  };
 };
 
 /**
  * Controls the browser overlay
  */
 ZDSNotif.BrowserOverlay = {
-  /**
-   * Says 'Hello' to the user. TODO: get MP/Notif/ replace a href="zeste..." fermer img/
-   */
-  sayHello : function(aEvent) {
+  init: function() { 
+    window.removeEventListener("load", ZDSNotif.BrowserOverlay.init, false);
     let stringBundle = document.getElementById("zds-notif-string-bundle");
     getNotifAndMP();
 
@@ -25,15 +26,40 @@ ZDSNotif.BrowserOverlay = {
       return body;
     }
 
-    function getNotifAndMP() {
+    function getNotifAndMP() {      
+      var dropdown = document.querySelector('.dropdown');
       var oReq = new XMLHttpRequest();
       oReq.open("GET", 'http://zestedesavoir.com/', true);
       oReq.onload = function () {
         //Parse the HTML
-        var DOMPars = HTMLParser(this.responseText);
-        window.alert(DOMPars.getElementsByClassName('dropdown')[3].innerHTML);
+        var DOMPars = HTMLParser(this.responseText.replace(/href=\"\//g, 'href="http://zestedesavoir.com/'));
+
+        for(var i = 0; i < DOMPars.getElementsByClassName('dropdown').length; ++i)
+        {
+          //Notifications
+          if(DOMPars.getElementsByClassName('dropdown')[i].innerHTML.indexOf('Notifications') != -1)
+          {
+            var htmlNotif = DOMPars.getElementsByClassName('dropdown')[i].innerHTML;
+ 
+            htmlNotif = htmlNotif.replace(/<span/g, '<html:span');
+            htmlNotif = htmlNotif.replace(/<\/span/g, '</html:span');
+            htmlNotif = htmlNotif.replace(/<ul/g, '<html:ul');
+            htmlNotif = htmlNotif.replace(/<\/ul/g, '</html:ul');
+            htmlNotif = htmlNotif.replace(/<li/g, '<html:li');
+            htmlNotif = htmlNotif.replace(/<\/li/g, '</html:li');
+            htmlNotif = htmlNotif.replace(/<a/g, '<html:a');
+            htmlNotif = htmlNotif.replace(/<\/a/g, '</html:a');
+            htmlNotif = htmlNotif.replace(/href=\"\//g, 'href="http://zestedesavoir.com/');
+            htmlNotif = htmlNotif.replace('<img(.*)>', '');
+            
+            dropdown.innerHTML = htmlNotif;
+          }
+        }
       };
       oReq.send(null);
     }
   }
 };
+
+
+window.addEventListener("load", ZDSNotif.BrowserOverlay.init, false);

@@ -27,53 +27,9 @@
     oncontextmenu="this.open = true;">
       <menupopup id="zds-notif-popup">
       <html:div id="temp"><html:div class="dropdown">
-        <html:span class="dropdown-title">Notifications</html:span>
-          <html:ul class="dropdown-list">
-            <html:li class="dropdown-empty-message">Aucune notification</html:li>
-          </html:ul>
-        <html:a href="http://zestedesavoir.com/forums/notifications/" class="dropdown-link-all">Toutes les notifications</html:a>
       </html:div>
       </html:div>
       </menupopup>
   </toolbarbutton>
   </toolbarpalette>
 </overlay>
-<!--ZDSNotif.BrowserOverlay.sayHello(event);
-        <menuitem label="&zds-notif.toolbar-label;" command="ZDSNotif.BrowserOverlay.sayHello(event)" />
-        <menuitem label="&zds-notif.toolbar-label;" command="ZDSNotif.BrowserOverlay.sayHello(event)" />-->
-<!--
-      -->
-
-<!--
-        <html:div class="dropdown">
-          <html:span class="dropdown-title">Notifications</html:span>
-          <html:ul class="dropdown-list">
-            <html:li>
-              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
-                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
-                  <html:span class="username">babas</html:span>
-                  <html:span class="date">Il y a 4 minutes</html:span>
-                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
-              </html:a>
-            </html:li>
-            <html:li>
-              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
-                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
-                  <html:span class="username">babas</html:span>
-                  <html:span class="date">Il y a 4 minutes</html:span>
-                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
-              </html:a>
-            </html:li>
-            <html:li>
-              <html:a href="/forums/sujet/856/imprimante-3dallez-je-me-lance/?page=3#p13471">
-                <html:img src="https://secure.gravatar.com/avatar/b898bfe8d357170a7f69682fc4cbe0de?d=identicon" alt="" class="avatar" />
-                  <html:span class="username">babas</html:span>
-                  <html:span class="date">Il y a 4 minutes</html:span>
-                  <html:span class="topic">Imprimante 3D...Allez, je me lance !</html:span>
-              </html:a>
-            </html:li>
-          </html:ul>
-          <html:a href="/forums/notifications/" class="dropdown-link-all">
-            Toutes les notifications
-          </html:a>
-        </html:div>-->
