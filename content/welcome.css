@@ -93,7 +93,7 @@ section {
 
 .authors .author {
     width: 45%;
-    margin-left: 10%;
+    margin-left: 5%;
     padding: 6px;
     background-color: white;
     border-bottom: solid 2px #4D4D4D;
@@ -106,6 +106,7 @@ section {
 
 .authors .author.sandhose {
     float: right;
+    margin-top: -5px;
 }
 
 .avatar {

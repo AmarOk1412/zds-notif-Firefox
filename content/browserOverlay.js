@@ -1,4 +1,4 @@
-//TODO : GET MP/ counter / Home page / scrollbar / Update (time + clic) / a href bug
+//TODO : GET MP / Update (time + clic) / a href bug / Bug affichage / Preferences
 
 if ("undefined" == typeof(ZDSNotif)) {
   var ZDSNotif = {
@@ -40,6 +40,11 @@ ZDSNotif.BrowserOverlay = {
           if(DOMPars.getElementsByClassName('dropdown')[i].innerHTML.indexOf('Notifications') != -1)
           {
             var htmlNotif = DOMPars.getElementsByClassName('dropdown')[i].innerHTML;
+            var toolbarbutton = document.getElementById('zds-notif-button');
+            if(htmlNotif.split("<a").length-2 > 0)
+              toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_n_16.png');
+            else
+              toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_16.png');
  
             htmlNotif = htmlNotif.replace(/<span/g, '<html:span');
             htmlNotif = htmlNotif.replace(/<\/span/g, '</html:span');
@@ -54,6 +59,24 @@ ZDSNotif.BrowserOverlay = {
             
             dropdown.innerHTML = htmlNotif;
             isConnected = true;
+          }
+          //Messagerie
+          if(DOMPars.getElementsByClassName('dropdown')[i].innerHTML.indexOf('Messagerie') != -1)
+          {
+            var htmlMP = DOMPars.getElementsByClassName('dropdown')[i].innerHTML;
+            /*htmlNotif = htmlNotif.replace(/<span/g, '<html:span');
+            htmlNotif = htmlNotif.replace(/<\/span/g, '</html:span');
+            htmlNotif = htmlNotif.replace(/<ul/g, '<html:ul');
+            htmlNotif = htmlNotif.replace(/<\/ul/g, '</html:ul');
+            htmlNotif = htmlNotif.replace(/<li/g, '<html:li');
+            htmlNotif = htmlNotif.replace(/<\/li/g, '</html:li');
+            htmlNotif = htmlNotif.replace(/<a/g, '<html:a');
+            htmlNotif = htmlNotif.replace(/<\/a/g, '</html:a');
+            htmlNotif = htmlNotif.replace(/href=\"\//g, 'href="http://zestedesavoir.com/');
+            htmlNotif = htmlNotif.replace('<img(.*)>', '');
+            
+            dropdown.innerHTML += htmlMP;
+            isConnected = true;*/
           }
         }
         //If User is disconnected :

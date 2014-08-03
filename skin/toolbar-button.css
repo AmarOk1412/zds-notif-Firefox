@@ -9,6 +9,8 @@ toolbar[iconsize="small"] #zds-notif-button {
 .dropdown
 {
   width: 350px;
+  max-height: 400px;
+  overflow:auto;
   text-align:center;
   margin:0;
   padding:0;

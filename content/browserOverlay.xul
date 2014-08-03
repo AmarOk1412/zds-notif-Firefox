@@ -19,12 +19,14 @@
   </stringbundleset>
 
   <toolbarpalette id="BrowserToolbarPalette">
-  <toolbarbutton id="zds-notif-button" class="toolbarbutton-1"
-    label="" tooltiptext="&zds-notif.toolbar-label;"
+  <toolbarbutton id="zds-notif-button" 
+    class="toolbarbutton-1"
+    tooltiptext="&zds-notif.toolbar-label;"
     type="menu"
     image="chrome://zds-notif/skin/images/icone_16.png"
     oncommand="this.open = true;"
-    oncontextmenu="this.open = true;">
+    oncontextmenu="this.open = true;"
+    rulesetsApplied="0">
       <menupopup id="zds-notif-popup">
       <html:div id="temp"><html:div class="dropdown">
       </html:div>
