@@ -1,4 +1,4 @@
-//TODO : GET MP / Update (time + clic) / a href bug / Bug affichage / Preferences
+//TODO : GET MP / a href bug / Bug affichage / Preferences
 
 if ("undefined" == typeof(ZDSNotif)) {
   var ZDSNotif = {
@@ -11,9 +11,16 @@ if ("undefined" == typeof(ZDSNotif)) {
 ZDSNotif.BrowserOverlay = {
   init: function() { 
     window.removeEventListener("load", ZDSNotif.BrowserOverlay.init, false);
-    let stringBundle = document.getElementById("zds-notif-string-bundle");
-    getNotifAndMP();
 
+    var timer = Components.classes["@mozilla.org/timer;1"]
+            .createInstance(Components.interfaces.nsITimer);
+    timer.initWithCallback(ZDSNotif.BrowserOverlay.updateUI, 60000, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
+    
+    ZDSNotif.BrowserOverlay.updateUI();
+  },  
+  updateUI: function()
+  {
+    getNotifAndMP();
     function HTMLParser(aHTMLString){
       var html = document.implementation.createDocument("http://www.w3.org/1999/xhtml", "html", null),
       body = document.createElementNS("http://www.w3.org/1999/xhtml", "body");
@@ -26,7 +33,8 @@ ZDSNotif.BrowserOverlay = {
       return body;
     }
 
-    function getNotifAndMP() {      
+    function getNotifAndMP() {
+      var toolbarbutton = document.getElementById('zds-notif-button');
       var dropdown = document.querySelector('.dropdown');
       var oReq = new XMLHttpRequest();
       oReq.open("GET", 'http://zestedesavoir.com/', true);
@@ -40,7 +48,6 @@ ZDSNotif.BrowserOverlay = {
           if(DOMPars.getElementsByClassName('dropdown')[i].innerHTML.indexOf('Notifications') != -1)
           {
             var htmlNotif = DOMPars.getElementsByClassName('dropdown')[i].innerHTML;
-            var toolbarbutton = document.getElementById('zds-notif-button');
             if(htmlNotif.split("<a").length-2 > 0)
               toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_n_16.png');
             else
@@ -83,12 +90,16 @@ ZDSNotif.BrowserOverlay = {
         if(!isConnected)
         {
           dropdown.innerHTML = '<html:a href="http://zestedesavoir.com/membres/connexion/?next=/" class="dropdown-link-all">Connexion</html:a>';
+          toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_16_logout.png');
         }
+        else
+          toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_16.png');
+    
       };
       oReq.send(null);
     }
   }
 };
 
-
 window.addEventListener("load", ZDSNotif.BrowserOverlay.init, false);
+window.addEventListener('click', ZDSNotif.BrowserOverlay.updateUI, false);
