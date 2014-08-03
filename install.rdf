@@ -10,6 +10,7 @@
     <em:version>0.0.0</em:version>
     <em:creator>AmarOk</em:creator>
     <em:homepageURL>chrome://zds-notif/content/welcome.html</em:homepageURL>
+    <em:iconURL>chrome://zds-notif/skin/images/icone_48.png</em:iconURL>
     <em:type>2</em:type>
 
     <!-- Mozilla Firefox -->

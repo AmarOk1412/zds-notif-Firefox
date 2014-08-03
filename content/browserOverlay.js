@@ -1,4 +1,4 @@
-//TODO : GET MP/ Badge / Home page / About / Disconnect / Update (time + clic) / a href bug / Icon
+//TODO : GET MP/ counter / Home page / scrollbar / Update (time + clic) / a href bug
 
 if ("undefined" == typeof(ZDSNotif)) {
   var ZDSNotif = {
@@ -33,7 +33,7 @@ ZDSNotif.BrowserOverlay = {
       oReq.onload = function () {
         //Parse the HTML
         var DOMPars = HTMLParser(this.responseText.replace(/href=\"\//g, 'href="http://zestedesavoir.com/'));
-
+        var isConnected = false;
         for(var i = 0; i < DOMPars.getElementsByClassName('dropdown').length; ++i)
         {
           //Notifications
@@ -53,7 +53,13 @@ ZDSNotif.BrowserOverlay = {
             htmlNotif = htmlNotif.replace('<img(.*)>', '');
             
             dropdown.innerHTML = htmlNotif;
+            isConnected = true;
           }
+        }
+        //If User is disconnected :
+        if(!isConnected)
+        {
+          dropdown.innerHTML = '<html:a href="http://zestedesavoir.com/membres/connexion/?next=/" class="dropdown-link-all">Connexion</html:a>';
         }
       };
       oReq.send(null);
