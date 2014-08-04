@@ -1,4 +1,4 @@
-//TODO : GET MP / a href bug MAJOR BUG
+//TODO : GET MP
 
 if ("undefined" == typeof(ZDSNotif)) {
   var ZDSNotif = {
@@ -33,6 +33,19 @@ ZDSNotif.BrowserOverlay = {
       .parseFragment(aHTMLString, false, null, body));
 
       return body;
+    }
+
+    function linkClick(e) {
+      var win = Components.classes['@mozilla.org/appshell/window-mediator;1']
+                  .getService(Components.interfaces.nsIWindowMediator)
+                  .getMostRecentWindow('navigator:browser');
+
+      if(e.target.tagName == 'html:a')
+        win.gBrowser.selectedTab = win.gBrowser.addTab(e.target.href);
+      else
+        win.gBrowser.selectedTab = win.gBrowser.addTab(e.target.parentNode.href);
+
+      e.preventDefault();
     }
 
     function getNotifAndMP() {
@@ -98,11 +111,9 @@ ZDSNotif.BrowserOverlay = {
         
 
         var Anchors = document.getElementsByTagName("html:a");
-        dropdown.innerHTML += '' + Anchors.length;
 	for (var i = 0; i < Anchors.length ; i++)
 	{
-            dropdown.innerHTML += '' + Anchors[i];
-	    Anchors[i].addEventListener("click", function () { return confirm('Are you sure?'); }, false);
+	    Anchors[i].addEventListener("click", linkClick, false);
 	}
     
       };
