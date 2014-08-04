@@ -1,11 +1,3 @@
-/*#zds-notif-button {
-  list-style-image: url("chrome://zds-notif/skin/images/icon_firefox.png");
-}
-
-toolbar[iconsize="small"] #zds-notif-button {
-  list-style-image: url("chrome://zds-notif/skin/images/icon_firefox.png");
-}*/
-
 .dropdown
 {
   width: 350px;
@@ -41,7 +33,9 @@ toolbar[iconsize="small"] #zds-notif-button {
 li
 {
   height:60px;
-  border-bottom: 1px solid #396a81;
+  border-bottom: 1px solid #396a81;  
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .dropdown-empty-message
@@ -64,15 +58,23 @@ li
     display: block;
     float: left;
     color: #95D7F5;
-    width: 50%;
+    width: 55%;
     overflow: hidden;
-    text-overflow: ellipsis;
+    text-overflow: hidden;
     white-space: nowrap;
 }
 
 .date 
 {
+    width: 30%;
     color: #5196b6;
     float: right;
-    padding: 4px 10px 0 0;
+    padding: 0px 10px 0 0;
+}
+
+.topic
+{
+  width: 80%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

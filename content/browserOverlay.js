@@ -1,4 +1,4 @@
-//TODO : GET MP / a href bug / Bug affichage / Preferences
+//TODO : GET MP / a href bug MAJOR BUG
 
 if ("undefined" == typeof(ZDSNotif)) {
   var ZDSNotif = {
@@ -12,10 +12,12 @@ ZDSNotif.BrowserOverlay = {
   init: function() { 
     window.removeEventListener("load", ZDSNotif.BrowserOverlay.init, false);
 
+    //update (timer)
     var timer = Components.classes["@mozilla.org/timer;1"]
             .createInstance(Components.interfaces.nsITimer);
     timer.initWithCallback(ZDSNotif.BrowserOverlay.updateUI, 60000, Components.interfaces.nsITimer.TYPE_REPEATING_SLACK);
     
+    //update (Init)
     ZDSNotif.BrowserOverlay.updateUI();
   },  
   updateUI: function()
@@ -92,8 +94,16 @@ ZDSNotif.BrowserOverlay = {
           dropdown.innerHTML = '<html:a href="http://zestedesavoir.com/membres/connexion/?next=/" class="dropdown-link-all">Connexion</html:a>';
           toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_16_logout.png');
         }
-        else
-          toolbarbutton.setAttribute('image', 'chrome://zds-notif/skin/images/icone_16.png');
+
+        
+
+        var Anchors = document.getElementsByTagName("html:a");
+        dropdown.innerHTML += '' + Anchors.length;
+	for (var i = 0; i < Anchors.length ; i++)
+	{
+            dropdown.innerHTML += '' + Anchors[i];
+	    Anchors[i].addEventListener("click", function () { return confirm('Are you sure?'); }, false);
+	}
     
       };
       oReq.send(null);
