@@ -55,21 +55,21 @@ li
 
 .username
 {
-    display: block;
-    float: left;
-    color: #95D7F5;
-    width: 55%;
-    overflow: hidden;
-    text-overflow: hidden;
-    white-space: nowrap;
+  display: block;
+  float: left;
+  color: #95D7F5;
+  width: 55%;
+  overflow: hidden;
+  text-overflow: hidden;
+  white-space: nowrap;
 }
 
 .date 
 {
-    width: 30%;
-    color: #5196b6;
-    float: right;
-    padding: 0px 10px 0 0;
+  width: 30%;
+  color: #5196b6;
+  float: right;
+  padding: 0px 10px 0 0;
 }
 
 .topic
@@ -77,4 +77,5 @@ li
   width: 80%;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align:left;  
 }

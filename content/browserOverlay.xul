@@ -13,11 +13,6 @@
   <script type="application/x-javascript"
     src="chrome://zds-notif/content/browserOverlay.js" />
 
-  <stringbundleset id="stringbundleset">
-    <stringbundle id="zds-notif-string-bundle"
-      src="chrome://zds-notif/locale/browserOverlay.properties" />
-  </stringbundleset>
-
   <toolbarpalette id="BrowserToolbarPalette">
   <toolbarbutton id="zds-notif-button" 
     class="toolbarbutton-1"
